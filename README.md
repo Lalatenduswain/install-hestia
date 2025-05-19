@@ -1,59 +1,69 @@
-# Hestia Control Panel Auto Installer
+# 🚀 Hestia Control Panel Auto Installer
 
-This script automates the installation of [Hestia Control Panel](https://www.hestiacp.com/) on a fresh Ubuntu server. It installs essential components like NGINX, Apache, PHP (multi-version), MariaDB, and security tools like Fail2Ban and iptables.
+This script simplifies the installation of the [Hestia Control Panel](https://www.hestiacp.com/) with all essential services pre-configured for Ubuntu servers.
 
----
-
-## 📦 Components Installed
-
-- NGINX (Proxy)
-- Apache (Backend)
-- PHP-FPM with multiple versions (5.6–8.3+)
-- MariaDB (MySQL-compatible)
-- Exim + Dovecot (Mail Server)
-- ClamAV + SpamAssassin (Anti-virus & Spam Filter)
-- Bind9 (DNS Server)
-- Vsftpd (FTP)
-- Fail2Ban + iptables (Security)
+**Repo URL**: [github.com/Lalatenduswain/install-hestia](https://github.com/Lalatenduswain/install-hestia)
 
 ---
 
-## 🚀 Usage
+## 📦 Services Installed
 
-### 1. Update & Prepare
+- **NGINX** – Web Proxy
+- **Apache2** – Backend Web Server
+- **PHP-FPM** – Multi-Version Support (5.6 to 8.4)
+- **MariaDB** – MySQL-Compatible DB Server
+- **Exim4** – Mail Server
+- **Dovecot** – POP3/IMAP Mail Delivery
+- **ClamAV + SpamAssassin** – Email Antivirus and Anti-Spam
+- **BIND9** – DNS Server
+- **vsftpd** – FTP Server
+- **iptables + Fail2Ban** – Security & Intrusion Protection
+- **HestiaCP** – Admin Web UI on port `8083`
+
+---
+
+## 🧰 Requirements
+
+- Ubuntu 20.04 / 22.04 / 24.04 (fresh install preferred)
+- Root access or a user with `sudo` privileges
+- Stable internet connection
+
+---
+
+## 📥 Installation
+
+### 1. Clone the Repository
 
 ```bash
-sudo apt update && sudo apt upgrade -y
+git clone https://github.com/Lalatenduswain/install-hestia.git
+cd install-hestia
 ````
 
-### 2. Clone and Run
+### 2. Edit Configuration (Optional)
 
-```bash
-wget https://raw.githubusercontent.com/<your-github-username>/hestia-install-script/main/install-hestia.sh
-chmod +x install-hestia.sh
-./install-hestia.sh
-```
-
-> Replace `<your-github-username>` with your actual GitHub username or repo path.
-
----
-
-## ⚙️ Configuration Variables
-
-Edit these variables in the script before running:
+By default, the script uses:
 
 ```bash
 HOSTNAME="cp.lalatendu.info"
 EMAIL="lalatendu.swain@gmail.com"
 USERNAME="lalatenduswain"
-PASSWORD="xxx"  # Use a strong password!
+PASSWORD="xxx"  # Update before running!
+```
+
+Edit the `install-hestia.sh` file to customize these values.
+
+### 3. Run the Installer
+
+```bash
+chmod +x install-hestia.sh
+./install-hestia.sh
 ```
 
 ---
 
-## 🔐 Security Notice
+## 🔐 Security Note
 
-Avoid hardcoding your real password in the script. Instead, prompt for it securely:
+Avoid committing sensitive passwords to version control. Use environment variables or prompt securely using:
 
 ```bash
 read -s -p "Enter admin password: " PASSWORD
@@ -61,36 +71,34 @@ read -s -p "Enter admin password: " PASSWORD
 
 ---
 
-## 📋 Requirements
+## 🔗 Panel Access
 
-* Ubuntu 20.04 / 22.04 / 24.04 (minimal install preferred)
-* Root access or sudo privileges
-* Internet connectivity
-
----
-
-## 📎 References
-
-* [Official HestiaCP GitHub](https://github.com/hestiacp/hestiacp)
-* [Documentation](https://docs.hestiacp.com/)
-
----
-
-## 🛠️ Post-Installation
-
-Access the panel:
+Once installed, access Hestia at:
 
 ```
 https://<your-server-ip>:8083
 ```
 
-Use the username and password you configured during install.
+Login with the admin user and password you set in the script.
 
 ---
 
-## 📬 Contact
+## 📄 License
 
-Maintained by [Lalatendu Swain](https://github.com/Lalatenduswain)
-Feel free to fork, modify, or raise issues.
+MIT License – free for personal and commercial use.
+
+---
+
+## 👤 Maintainer
+
+**Lalatendu Swain**
+🔗 [GitHub Profile](https://github.com/Lalatenduswain)
+✉️ [lalatendu.swain@gmail.com](mailto:lalatendu.swain@gmail.com)
+
+---
+
+## 💡 Suggestions / Issues
+
+Open an issue or submit a PR if you'd like to contribute or report bugs.
 
 ```
