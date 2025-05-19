@@ -102,3 +102,9 @@ MIT License – free for personal and commercial use.
 Open an issue or submit a PR if you'd like to contribute or report bugs.
 
 ```
+
+Let me know if you also want:
+- A `LICENSE` file (MIT or Apache 2.0)
+- `.env` file support for secrets
+- A simplified version (e.g., no mail/DNS services)
+```
